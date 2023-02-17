@@ -1,0 +1,384 @@
+/*____________________Header______________________*/
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Encode Sans Expanded', sans-serif;
+    text-decoration: none;
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(41, 41, 41);
+}
+
+.header_sup{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.logo img{
+    width: 300px;
+}
+
+.search input{
+    width: 300px;
+    padding: 10px;
+}
+
+/*_________________________Menu___________________________*/
+
+.cont_menu{
+    width: 100%;
+    height: 70px;
+    background-color: rgb(86, 167, 167);
+    padding: 0px 20px;
+}
+
+.menu{
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;    
+}
+
+nav{
+    height: 100%;
+}
+
+nav > ul{
+    height: 100%;
+    display: flex;
+}
+nav  ul  li{
+    height: 100%;
+    list-style: none;
+    position: relative;
+    padding: 0px 6px;
+}
+
+nav > ul > li:first-child > a{
+    background-image: url(../img/LogoSolo.png);
+    background-size: 48px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 20px 40px;
+} 
+
+nav > ul > li > a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: rgb(41, 41, 41);
+    align-items: center;
+    padding: 14px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 300ms ease;
+}
+
+nav > ul > li > a:hover{
+    transform: scale(1.1);
+    background-color: rgb(79, 179, 169);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+}
+
+#selected{
+    transform: scale(1.1);
+    background-color: rgb(102, 212, 201);
+}
+
+/*___________________________Submenu____________________________*/
+
+nav ul li ul{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    position: absolute;
+    top: 90px;
+    left: -5px;
+    padding: 14px 0px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+    z-index: 10;
+    transition: all 400ms ease;
+}
+
+nav ul li:hover ul{
+    visibility: visible;
+    opacity: 1;
+    top: 70px;
+}
+
+nav ul li ul::before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid white;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+}
+
+nav ul li ul li a{
+    display: block;
+    color: rgb(40, 40, 40);
+    padding: 6px;
+    padding-left: 14px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 600ms ease;
+} 
+
+nav ul li ul li a:hover{
+    background-color: rgb(102, 212, 201);
+    transform: scale(1.1);
+    padding-left: 30px;
+    font-size: 14px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+}
+
+.icon_menu{
+    font-size: 26px;
+    color: aliceblue;
+    cursor: pointer;
+    width: 26px;
+    height: 100%;
+    display: none;
+    align-items: center;
+}
+
+#label_check{
+    width: 26px;
+    height: 100%;
+}
+
+#check_menu{
+    display: none;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(201, 201, 201, 0.6), rgba(201, 201, 201, 0.6)), url(../img/fondopro.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+main{
+    padding: 40px 20px;
+    margin-top: 220px;
+}
+
+img{
+    max-width: 100%;
+}
+/*_______________________Slider_________________________*/
+
+.slider{
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    *z-index: -1;
+}
+
+.imagenes{
+    display: flex;
+    transform: translate3d(0,0,0);
+    transition: all 600ms;
+    animation-name: autoplay;
+    animation-duration: 18s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-grow: 0;
+    max-width: 100%;
+}
+
+.pagination{
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.pag_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 0 10px;
+    text-align: center;
+    transition: all 300ms;
+}
+
+.pag_item:hover{
+    transform: scale(2);
+}
+
+.pag_item img{
+    display: inline-block;
+    max-width: none;
+    height: 100%;
+    transform: scale(1);
+    opacity: 0;
+    transition: all 300ms;
+}
+
+.pag_item:hover img{
+    opacity: 1;
+    transform: scale(1);
+}
+
+    input[id="1"]:checked ~ .imagenes{
+        animation: none;
+        transform: translate3d(0,0,0);
+    }
+    input[id="1"]:checked ~ .pagination .pag_item[for="1"]{
+        background: white;
+    }
+
+    input[id="2"]:checked ~ .imagenes{
+        animation: none;
+        transform: translate3d(calc(-100% * 1),0,0);
+    }
+    input[id="2"]:checked ~ .pagination .pag_item[for="2"]{
+        background: white;
+    }
+
+    input[id="3"]:checked ~ .imagenes{
+        animation: none;
+        transform: translate3d(calc(-100% * 2),0,0);
+    }
+    input[id="3"]:checked ~ .pagination .pag_item[for="3"]{
+        background: white;
+    }
+
+@keyframes autoplay{
+    33.3%{
+        transform: translate3d(calc(-100% * 0),0,0);
+    }
+    66.6%{
+        transform: translate3d(calc(-100% * 1),0,0);
+    }
+    100%{
+        transform: translate3d(calc(-100% * 2),0,0);
+    }
+}
+
+/*___________________Cuerpo Principal________________________*/
+
+article{
+    color: aliceblue;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 40px;
+    background: rgba(29, 29, 29, 0.75);
+}
+
+#one{
+    display: flex;
+    padding-top: 20px;
+    height: 100%;
+    justify-content: center;
+}
+/*__________________Responsives_____________________________*/
+@media screen and (max-width: 720px){
+
+    .search input{
+        display: none;
+    }
+
+    .header_sup{
+        padding: 10px;
+    }
+
+    .logo img{
+        width: 200px;
+    }
+
+    nav > ul{
+        flex-direction: column;
+        background-color: rgb(86, 167, 167);
+        position: static;
+        left: 0;
+        top: 153px;
+        width: 106%;
+        height: 0px;
+        margin-left: -20px;
+        transition: all 300ms ease;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    nav > ul > li > a:hover{
+        transform: scale(1);
+    }
+
+    nav ul li ul{
+        left: 90px;
+    }
+
+    nav > ul > li:hover ul{
+        top: 50px;
+    }
+
+    nav > ul > li:first-child a{
+        background-position: 20px;
+        background-position: center center;
+    }
+
+    #selected{
+        transform: scale(1);
+    }
+
+    #label_check{
+        display: block;
+    }
+
+    .icon_menu{
+        display: flex;
+    }
+
+    #check_menu:checked ~ nav > ul{
+        height: 300px;
+        visibility: visible;
+        opacity: 1;
+    }
+}
